@@ -8,16 +8,15 @@ class FlipFlap
   end
 
   def to_yaml
-  	# Get header names and add a tab between elements
-	result = yml[0].keys.reduce { |a, e| "#{a}\t#{e}" }
+    # Get header names and add a tab between elements
+    result = yml[0].keys.reduce { |a, e| "#{a}\t#{e}" }
 
-	# Get values of objects and add them in a new line separated by tabs
-	@data.each do |element|
-	  result += "\n#{element.values.reduce { |a, e| "#{a}\t#{e}" }}"
-	end
+    # Get values of objects and add them in a new line separated by tabs
+    @data.each do |element|
+      result += "\n#{element.values.reduce { |a, e| "#{a}\t#{e}" }}"
+    end
 
-	@data = result
-
+    @data = result
   end
 end
 

@@ -22,7 +22,6 @@ module TsvBuddy
   # to_tsv: converts @data into tsv string
   # returns: String in TSV format
   def to_tsv
-
     result = @data[0].keys.reduce { |a, e| "#{a}\t#{e}" }
 
     # Get values of objects and add them in a new line separated by tabs
