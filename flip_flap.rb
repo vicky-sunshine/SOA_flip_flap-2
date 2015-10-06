@@ -12,11 +12,3 @@ class FlipFlap
     @data = @data.to_yaml
   end
 end
-
-class Tester
-    include TsvBuddy
-end
-
-t = Tester.new
-result = t.take_tsv(File.read('./data/survey.tsv'))
-puts t.to_tsv

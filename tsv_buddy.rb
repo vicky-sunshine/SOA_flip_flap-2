@@ -8,13 +8,13 @@ module TsvBuddy
   def take_tsv(tsv)
     header = []
     @data ||= []
-    tsv.each_line.with_index do |line,index|
+    tsv.each_line.with_index do |line, index|
       if index == 0
         # Get header names
-        header = line.gsub("\n", '').split("\t")
+        header = line.delete("\n", '').split("\t")
       else
         # Get tuple and add as an obj
-        @data << Hash[header.zip line.gsub("\n", '').split("\t")]
+        @data << Hash[header.zip line.delete("\n", '').split("\t")]
       end
     end
   end
@@ -26,7 +26,7 @@ module TsvBuddy
 
     # Get values of objects and add them in a new line separated by tabs
     @data.each do |element|
-      result += "\n#{element.values.reduce { |a, e| "#{a}\t#{e}" }}"
+      result.join("\n#{element.values.reduce { |a, e| "#{a}\t#{e}" }}")
     end
 
     result
